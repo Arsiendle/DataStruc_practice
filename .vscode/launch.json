@@ -1,0 +1,139 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        // C++ | 单元 内部 调试+运行
+        {
+            "name": "C++ | 单元 内部 调试",
+            "preLaunchTask": "C++_Compile_Single_File",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}\\a.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\mingw64\\bin\\gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        // C++ | 单元 外部 调试
+        {
+            "name": "C++ | 单元 外部 调试",
+            "preLaunchTask": "C++_Compile_Single_File_GBK",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}\\a.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\mingw64\\bin\\gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        // C++ | 单元 外部 运行
+        {
+            "name": "C++ | 单元 外部 运行",
+            "preLaunchTask": "C++_Compile_Single_File_GBK",
+            "type": "cppvsdbg",//类型为cppvsdbg意思为windows启动也就是外部控制台，不过这个是自带一个程序暂停的
+            "request": "launch",
+            "program": "${fileDirname}\\a.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "console": "externalTerminal"
+        },
+        // C++ | 项目 内部 调试+运行
+        {
+            "name": "C++ | 项目 内部 调试",
+            "preLaunchTask": "C++_Compile_Project",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\${workspaceFolderBasename}.exe",//工作区根目录文件夹的名字为名的.exe文件
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "c:\\mingw64\\bin\\gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        // C++ | 项目 外部 调试
+        {
+            "name": "C++ | 项目 外部 调试",
+            "preLaunchTask": "C++_Compile_Project_GBK",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\${workspaceFolderBasename}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "c:\\mingw64\\bin\\gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        // C++ | 项目 外部 运行
+        {
+            "name": "C++ | 项目 外部 运行",
+            "preLaunchTask": "C++_Compile_Project_GBK",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\${workspaceFolderBasename}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "console": "externalTerminal"
+        }
+    ]
+}

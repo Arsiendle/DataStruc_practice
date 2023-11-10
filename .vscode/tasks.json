@@ -1,0 +1,97 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        // C++ | 单元 内部 调试+运行
+        {
+            "type": "cppbuild",
+            "label": "C++_Compile_Single_File", 
+            "command": "C:\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\a.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "编译器: C:/mingw64/bin/g++.exe"
+        },
+        // C++ | 单元 外部 调试+运行
+        {
+            "type": "cppbuild",
+            "label": "C++_Compile_Single_File_GBK",
+            "command": "C:\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\a.exe",
+                "-fexec-charset=GBK"//将可执行程序代码设置为GBK
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                // "isDefault": true
+            },
+            "detail": "编译器: C:/mingw64/bin/g++.exe"
+        },
+        // C++ | 项目 内部 调试+运行
+        {
+            "type": "cppbuild",
+            "label": "C++_Compile_Project",
+            "command": "C:\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${workspaceFolder}\\*.cpp",
+                "-o",
+                "${workspaceFolder}\\${workspaceFolderBasename}.exe"//将此文件编译为根目录名.exe
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "编译器: C:/mingw64/bin/g++.exe"
+        },
+        // C++ | 项目 外部 调试+运行
+        {
+            "type": "cppbuild",
+            "label": "C++_Compile_Project_GBK",
+            "command": "C:\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${workspaceFolder}\\*.cpp",
+                "-o",
+                "${workspaceFolder}\\${workspaceFolderBasename}.exe",
+                "-fexec-charset=GBK"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "编译器: C:/mingw64/bin/g++.exe"
+        }
+    ]
+}
