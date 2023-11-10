@@ -6,10 +6,10 @@
  * @param  val  值
  * @param  next 下一个结点
  */
-typedef struct MyNode
+typedef struct Nodeptr
 {
     int val;
-    struct MyNode *next;
+    struct Nodeptr *next;
 } MyNode, *Node;
 
 /**
