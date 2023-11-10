@@ -1,3 +1,7 @@
+// 3->2->1->bottom
+// 结点增加一个last,指向上一个结点
+// 当需要先进先出时(队列),bottom->last->last(第二个结点的地址)赋值给bottom->last(bottom的last)
+
 #include <stdio.h>
 #include <malloc.h>
 
