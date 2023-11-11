@@ -269,7 +269,7 @@ int main()
     // 输出出队元素的值和出队后队列中各元素值
     printf("第三次遍历\n");
     printArrayQueue(aque);
-    printf("判空:\n;");
+    printf("判空:\n");
     printf("%d\n", empty(aque));
 
     printf("建立一个仅用尾指针标识的循环链队\n");
