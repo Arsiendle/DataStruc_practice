@@ -6,12 +6,7 @@ void changePointer(int *ptr)
 }
 int main()
 {
-    int *ptr = new int(1);
-    printf("%d\n", *ptr);
-    printf("%p\n", ptr);
-    changePointer(ptr);
-    printf("%d\n", *ptr);
-    printf("%p\n", ptr);
+    printf("%d", 5 / 2);
 
     return 0;
 }
