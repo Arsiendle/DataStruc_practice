@@ -1,13 +1,8 @@
 // 给你两个单链表的头节点 headA 和 headB ，请你找出并返回两个单链表相交的起始节点。如果两个链表不存在相交节点，返回 null 。
-/* intersectVal - 相交的起始节点的值。
-如果不存在相交节点，这一值为 0
-listA - 第一个链表
-listB - 第二个链表
-skipA - 在 listA 中（从头节点开始）跳到交叉节点的节点数
-skipB - 在 listB 中（从头节点开始）跳到交叉节点的节点数  */
+// 进阶：你能否设计一个时间复杂度 O(m + n) 、仅用 O(1) 内存的解决方案？
 #include <stdio.h>
 
-struct ListNode
+    struct ListNode
 {
     int val;
     ListNode *next;
