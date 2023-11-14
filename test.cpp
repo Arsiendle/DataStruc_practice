@@ -1,38 +1,39 @@
-#include <stdlib.h>
 #include <stdio.h>
-
-/**
- * @brief 结点
- * @param  val  值
- * @param  next 下一个结点
- */
-typedef struct Nodeptr
+#include <math.h>
+// prime(p)判断p是否为 素数
+int prime(int p)
 {
-    int val;
-    struct Nodeptr *next;
-} MyNode, *Node;
-
-/**
- * @brief 创建结点
- * @param  val  值
- * @return  MyNode 节点
- */
-Node newNode(int val)
-{
-    Node node = (Node)malloc(sizeof(MyNode));
-    if (!node)
+    if (p < 2)
     {
-        printf("malloc failed\n");
-        exit(1);
+        return 0;
     }
-    node->val = val;
-    node->next = NULL;
-    return node;
+    // 1到p之间的数,不包含1和p
+    for (int i = 2; i <= sqrt(p); i++)
+    {
+        if (p % i == 0)
+        {
+            // 能够整除,即不是素数,返回0
+            return 0;
+        }
+    }
+    // 循环结束,没有找到能够整除的数,即素数,返回1
+    return 1;
+}
+
+int prime_sum(int m, int n)
+{
+    int sum = 0;
+    for (int p = m; p <= n; p++)
+    {
+        sum = sum + (prime(p) ? p : 0);
+    }
+    return sum;
 }
 
 int main()
 {
-    Node node = newNode(1);
-    node->next = (Node)malloc(sizeof(MyNode));
+    int m, n, p;
+    scanf("%d %d", &m, &n);
+    printf("sum of(%d,%d)=%d", m, n, prime_sum(m, n));
     return 0;
 }

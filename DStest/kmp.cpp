@@ -22,15 +22,9 @@ int *get_next(char *pattern)
     while (i < pattern[0])
     {
         if (j == 0 || pattern[i] == pattern[j]) // pattern[i]表示后缀的单个字符，pattern[j]表示前缀的单个字符
-        {
-            ++i;
-            ++j;
-            next[i] = j;
-        }
+            next[++i] = ++j;
         else
-        {
             j = next[j]; // 若字符不相同，则j值回溯
-        }
     }
     return next;
 }
@@ -48,9 +42,7 @@ int *get_nextval(char *pattern)
     {
         if (j == 0 || pattern[i] == pattern[j]) // pattern[i]表示后缀的单个字符，pattern[j]表示前缀的单个字符
         {
-            ++i;
-            ++j;
-            if (pattern[i] != pattern[j])
+            if (pattern[++i] != pattern[++j])
             {
                 nextval[i] = j;
             }
