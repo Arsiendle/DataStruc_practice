@@ -1,39 +1,64 @@
-#include <stdio.h>
-#include <math.h>
-// prime(p)判断p是否为 素数
-int prime(int p)
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// 判断一个数是否为质数
+bool isPrime(int n)
 {
-    if (p < 2)
+    if (n < 2)
     {
-        return 0;
+        return false;
     }
-    // 1到p之间的数,不包含1和p
-    for (int i = 2; i <= sqrt(p); i++)
+    for (int i = 2; i * i <= n; i++)
     {
-        if (p % i == 0)
+        if (n % i == 0)
         {
-            // 能够整除,即不是素数,返回0
-            return 0;
+            return false;
         }
     }
-    // 循环结束,没有找到能够整除的数,即素数,返回1
-    return 1;
+    return true;
 }
 
-int prime_sum(int m, int n)
+// 将一个数拆分为若干个两两不同的质数之和
+void splitIntoPrimes(int n, vector<int> &primes, vector<vector<int>> &result)
 {
-    int sum = 0;
-    for (int p = m; p <= n; p++)
+    if (n == 0)
     {
-        sum = sum + (prime(p) ? p : 0);
+        result.push_back(primes);
+        return;
     }
-    return sum;
+    for (int i = 2; i <= n; i++)
+    {
+        if (isPrime(i))
+        {
+            if (primes.empty() || i > primes.back())
+            {
+                primes.push_back(i);
+                splitIntoPrimes(n - i, primes, result);
+                primes.pop_back();
+            }
+        }
+    }
 }
 
 int main()
 {
-    int m, n, p;
-    scanf("%d %d", &m, &n);
-    printf("sum of(%d,%d)=%d", m, n, prime_sum(m, n));
+    int p;
+    cin >> p;
+    vector<int> primes;
+    vector<vector<int>> result;
+    splitIntoPrimes(p, primes, result);
+    for (auto &v : result)
+    {
+        for (int i = 0; i < v.size(); i++)
+        {
+            cout << v[i];
+            if (i != v.size() - 1)
+            {
+                cout << "+";
+            }
+        }
+        cout << endl;
+    }
     return 0;
 }
